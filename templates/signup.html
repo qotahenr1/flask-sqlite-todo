@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="static/neumorphism-ui.css">
+</head>
+<body class="dark-mode">
+  <div class="sul-box-raised-2 container">
+    <h1>Registro</h1>
+    <form class="flex-column" action="/signup" method="POST">
+      <input class="sul-text-field" name="name" placeholder="Nome">
+      <br>
+      <input class="sul-text-field" name="email" placeholder="E-mail">
+      <br>
+      <input class="sul-text-field" name="password" placeholder="Senha" type="password">
+      <br>
+      <button class="sul-btn" type="submit">
+        Cadastrar
+      </button>
+    </form>
+    <a href="/login">Login</a>
+  </div>
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      <div class="messages">
+        {% for class, message in messages %}
+          <div class="{{ class }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+</body>
+</html>
